@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html dir="ltr" id="h">
+<script>
+if ({{lan}} == 1) {
+    document.getElementById("h").dir = "rtl";
+}
+
+</script>
+
+<head>
+    <link rel="stylesheet" href='/static/style/file.css'/>
+
+
+
+<body style="font-family:Verdana; size="30" ">
+
+<div style="padding:15px;">
+
+
+
+<div style="overflow:auto;">
+  <div class="menu" style="background-color: lightyellow">
+    <div class="menuitem" >{{item.Price}} SR </div>
+      {% ifequal lan 1  %}
+         <div class="menuitem" >{{item.descriptionar}}</div>
+          {% endifequal %}
+          {% ifequal lan 2  %}
+         <div class="menuitem" >{{item.description}}</div>
+          {% endifequal %}
+          {% ifequal lan 3  %}
+        <div class="menuitem" >{{item.descriptionru}}</div>
+          {% endifequal %}
+
+
+       <div class="menuitem"> <form  action="" method="POST">
+    {% csrf_token %}
+   {{former.as_p}}
+    {% if request.GET.item %}
+    <input type="hidden" name="next" value="{{request.Get.next}}">
+     {% endif %}
+
+    <button class="menuitem"  type="submit" id="dd" style="width:200px;height:90px;background-color: #4CAF50;font-size:20px">Add to my order </button>
+        <a href="/list/{{Order_id}}">
+        <button type="button" class="menuitem"  id="nn" style="width:120px;height:90px;background-color: #4CAF50;font-size:20px ">Back</button></a>
+       </span></form>
+
+       </div>
+  </div>
+<script>
+if ({{lan}} == 1) {
+  document.getElementById("nn").innerHTML = "عودة";
+    document.getElementById("dd").innerHTML = "إضافة";
+}
+else if ({{lan}} == 3) {
+  document.getElementById("nn").innerHTML = "назад";
+    document.getElementById("dd").innerHTML = "Добавить";
+}
+</script>
+<br>
+ <div >
+
+    <img src="{{item.image.url}}" style="width:90%;">
+</div></div>
+
+
+</body>
+
+</html>

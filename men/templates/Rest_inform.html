@@ -1,0 +1,18 @@
+{%extends 'base.html' %}
+
+
+{% block head %}
+ <title>Add Product</title>
+{% endblock %}
+{% block body%}
+<div class="container">
+
+ <form method="post" action="" enctype='multipart/form-data'>
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit">Submit</button>
+   </form>
+  </br>
+</div>
+{% endblock %}

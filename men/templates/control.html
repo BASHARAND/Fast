@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+<h1>Welcome</h1>
+<p>
+    Control your Restuarant From here!
+</p>
+<br><br><br>
+<center><div><a href="{% url 'kitchen' %}">
+    <p> <button type="button" class="btn btn-danger" style="width:250px;font-size:20">Kitchen Control</button></p></a>
+<a href="{% url 'order_control' %}">
+    <p><button type="button" class="btn btn-danger" style="width:225px;font-size:20">Order control</button></p></a>
+
+
+    <a href= "{% url 'cash' %}" >
+        <p><button type="button" class="btn btn-danger" style="width:200px;font-size:20">Cash</button></p></a></div>
+ <a href= "/admin/" >
+     <p><button type="button" class="btn btn-danger" style="width:200px;font-size:20">Add product</button></p></a></center>
+    {% endblock %}

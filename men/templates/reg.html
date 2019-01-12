@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+{%extends 'base.html' %}
+<h1>home</h1>
+{% block head %}
+ <title></title>
+{% endblock %}
+{% block body%}
+<div class="container">
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chose Table</title>
+
+</head>
+
+<br>
+<br>
+<br>
+
+<br>
+
+
+<center ><form action="" method="POST" >
+    {% csrf_token %}
+   {{ field.errors }}
+    <p style="font-size:30px" id="t">Chose your Table</p>
+    {{ formreg.table_num }}
+
+            <br> <br> <br>
+    <button type="submit" style="font-size:30px; background-color: #4CAF50 ;width:200px;height:100px" id="b" "" >OK</button>
+
+</form></center>
+<script>
+if ({{ln}} == 1) {
+  document.getElementById("t").innerHTML = "اختيار رقم الطاولة أو الجلسة";
+    document.getElementById("b").innerHTML = "موافق";
+}
+else if ({{ln}} == 3) {
+  document.getElementById("t").innerHTML = "Выберите номер стола";
+
+}
+</script>
+<br>
+<br>
+
+
+</body>
+</html>
+{% endblock %}

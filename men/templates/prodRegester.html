@@ -1,0 +1,91 @@
+{%extends 'base.html' %}
+
+
+{% block head %}
+
+{% endblock %}
+{% block body%}
+<div class="container">
+ <form action="" method="post">
+
+
+        <div class="fieldWrapper">
+
+            {{ field.errors }}
+<div>
+<input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="EnCheck"/>English
+
+<input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"/>Russia
+<input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="noCheck"/>عربي
+            <br>
+<div id="ifEn" style="display:block;margin-top:3%;">Item:{{ form.name }}  </div>
+<div id="ifRu" style="display:none;margin-top:3%;">пункт:{{ form.nameru }}  </div>
+<div id="ifAr" style="display:none;margin-top:3%;">الصنف:{{ form.namear }}  </div>
+
+
+
+            <script >
+
+ function yesnoCheck() {
+        if (document.getElementById('EnCheck').checked) {
+           document.getElementById('ifEn').style.display = 'block';
+        } else {
+           document.getElementById('ifEn').style.display = 'none';
+        }
+        if (document.getElementById('yesCheck').checked) {
+           document.getElementById('ifRu').style.display = 'block';
+        } else {
+           document.getElementById('ifRu').style.display = 'none';
+        }
+        if (document.getElementById('noCheck').checked) {
+           document.getElementById('ifAr').style.display = 'block';
+        } else {
+           document.getElementById('ifAr').style.display = 'none';
+        }
+    }
+
+</script></div>
+
+     <div>   <input type="radio" onclick="javascript:yesnoCheck();" name="yesno1" id="EnCheck1"/>English
+
+<input type="radio" onclick="javascript:yesnoCheck();" name="yesno1" id="yesCheck1"/>Russia
+<input type="radio" onclick="javascript:yesnoCheck();" name="yesno1" id="noCheck1"/>عربي
+            <br>
+<div id="ifEn1" style="display:block;margin-top:3%;">Description:{{ form.description }}  </div>
+<div id="ifRu1" style="display:none;margin-top:3%;">пункт:{{ form.descriptionru }}  </div>
+<div id="ifAr1" style="display:none;margin-top:3%;">الوصف:{{ form.descriptionar }}  </div>
+
+
+
+            <script type="text/javascript">
+
+ function yesnoCheck() {
+        if (document.getElementById('EnCheck1').checked) {
+           document.getElementById('ifEn1').style.display = 'block';
+        } else {
+           document.getElementById('ifEn1').style.display = 'none';
+        }
+        if (document.getElementById('yesCheck1').checked) {
+           document.getElementById('ifRu1').style.display = 'block';
+        } else {
+           document.getElementById('ifRu1').style.display = 'none';
+        }
+        if (document.getElementById('noCheck1').checked) {
+           document.getElementById('ifAr1').style.display = 'block';
+        } else {
+           document.getElementById('ifAr1').style.display = 'none';
+        }
+    }
+
+</script></div>
+            Price:{{ form.Price }}
+             Type:{{ form.Type }}
+             Image:{{ form.image }}
+        </div>
+
+    <p><input type="submit" value="Send message" /></p>
+</form>
+
+  </br>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="refresh" content="5">
+    <link rel="stylesheet" href='/static/style/file.css'/>
+
+    <style>
+
+table {
+    border-collapse: 3;
+    border: 2px solid black;
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+    padding: 15px;
+
+
+}
+tr:hover {background-color: #f5f5f5;}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+
+</style>
+    <meta charset="UTF-8">
+    <title>Kitchen</title>
+</head>
+<body>
+<meta http-equiv="refresh" content="5">
+
+<p>Order N:{{ order.id}}    </p>
+<table>
+  <tr>
+    <th>N</th>
+    <th>Date</th>
+      <th>Value</th>
+
+     </tr>
+
+{% for order in res %}
+
+
+
+  <tr>
+
+    <td>{{order.id}}</td>
+
+    <td>{{order.date}}</td>
+      <td>  {{order.value}}</td>
+
+
+
+  </tr>
+
+{% endfor %}</table>
+<p align="right">  {{val.total}}      :    المجموع  </p>
+<br><br>
+<center><a href="/sel/"> <button type="button" class="btn btn-danger">موافق</button></a></center>
+
+</body>
+</html>

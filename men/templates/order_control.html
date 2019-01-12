@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="refresh" content="5">
+
+    <style>
+
+table {
+    border-collapse: 3;
+    border: 2px solid black;
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+    padding: 15px;
+
+
+}
+tr:hover {background-color: #f5f5f5;}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>Contol Order</title>
+</head>
+<body>
+
+
+{% for order in orders %}
+<p>Order N:{{ order.id}}    Table N: {{order.table_num}}    Total:{{order.value}}</p>
+<div><table>
+  <tr>
+    <th>Item</th>
+    <th>Count</th>
+      <th>Value</th>
+     </tr>
+
+  <tr>
+{% for prod in prod %}
+        {% ifequal order.id prod.order_id_id  %}
+           {% ifequal L 2 %}
+
+    <td>{{prod.product_id.name}}</td>
+           {% endifequal %}
+      {% ifequal L 1 %}
+
+    <td>{{prod.product_id.namear}}</td>
+           {% endifequal %}
+      {% ifequal L 3 %}
+
+    <td>{{prod.product_id.nameru}}</td>
+           {% endifequal %}
+    <td>{{prod.count}}</td>
+      <td>{{prod.value}}</td>
+
+
+  </tr>
+
+
+       {% endifequal %}
+{% endfor %}
+
+</table></div>
+<br><br>
+<script>
+        function enableButton2() {
+            document.getElementById("button2").disabled = false;
+        }
+    </script>
+</head>
+<body>
+
+<a href="{% url 'print' order_id=order.id %}">
+<button type="button" class="btn btn-danger">Print</button></a>
+
+<a href="{% url 'done' order_id=order.id %}">
+<button type="button" class="btn btn-danger" >Done</button></a>
+<br><br>
+{%endfor%}
+</body>
+</html>

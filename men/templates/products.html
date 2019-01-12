@@ -1,0 +1,111 @@
+
+{% load static %}
+<head>
+        <link rel="stylesheet" href='/static/style/file.css'/>
+
+    <style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 3px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+     min-width:40px;
+
+}
+
+.dropdown {
+    padding: 1px;
+    position: relative;
+    display: inline;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    left:0;
+    background-color: #f9f9f9;
+    min-width:400px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: inline;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+body {
+  background-color: lightyellow;
+}
+.dix {
+  background-image: url("/media/Profile_image/count.png");
+  width:75px;
+  padding:6px;
+  margin:20px;
+
+</style>
+</head>
+<div class="container" align="center">
+
+    <h1> Menue List       <div style="background-color: Red;"><a href="/invoice/{{path1}}"><div class="dix">{{g}}</div></a></div></h1>
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href='/static/style/file.css'/>
+
+
+
+
+
+
+   {%for product in products  %}
+   {% load mathfilters %}
+  <div class="dropdown"  style="float:left;display: inline;" >
+  <p style=" overflow: auto;"><button class="dropbtn" id="nn">{{product}}</button>
+  <div class="dropdown-content" >
+       {% for item in items %}
+        {% ifequal product.id item.category_id  %}
+
+    <ul class="w3-ul w3-card-4" >
+    <li class="w3-bar">
+      <span  onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button  w3-right" ></span>
+
+
+     <a href="/item{{path}}{{item.id}}">
+
+      <div class="w3-bar-item">
+         {% ifequal lan 1  %}
+       <span class="w3-large">{{item.namear}}  <img src=" {{item.image.url}}"  class="w3-bar-item w3-circle "  style="width:80px"> {{item.Price}} SR</span><br>
+          {% endifequal %}
+          {% ifequal lan 2  %}
+       <span class="w3-large">{{item.name}}  <img src=" {{item.image.url}}"  class="w3-bar-item w3-circle "  style="width:80px"> {{item.Price}} SR</span><br>
+          {% endifequal %}
+          {% ifequal lan 3  %}
+      <span class="w3-large">{{item.nameru}}   <img src=" {{item.image.url}}"  class="w3-bar-item w3-circle "  style="width:80px"> {{item.Price}} SR</span><br>
+          {% endifequal %}
+
+      </div></a>
+
+    </li></ul>
+
+ {% endifequal %}
+{% endfor %}
+  </div></div>
+
+     {%endfor%}
+ </p>
+
+    </div>
+
+
+
+

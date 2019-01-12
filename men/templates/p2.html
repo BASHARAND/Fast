@@ -1,0 +1,178 @@
+{%extends 'base.html' %}
+{% load static %}
+<h1>home</h1>
+{% block head %}
+<head>
+    <style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+     min-width: 360px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 360px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 20px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+
+</style>
+</head>
+{% endblock %}
+{% block body%}
+<div class="container">
+<h1> Menue List</h1>
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href='/static/style/file.css'/>
+
+ <center> <h2>حسابي</h2>
+   <a href="/invoice/{{path1}}">
+       <img src="/media/Profile_image/box.jpg" class="w3-circle" alt="Norway" style="width:70px;height:70px;"></a>
+
+     </center>
+
+<br>
+
+    <br>
+    <br>
+  <div class="dropdown" style="float:left;">
+  <button class="dropbtn" id="nn">FOOD</button>
+  <div class="dropdown-content" style="left:0;">
+
+    {%for product in products %}
+
+
+    <ul class="w3-ul w3-card-4">
+    <li class="w3-bar">
+      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white  w3-right"></span>
+      <img src=" {{product.image.url}}"  class="w3-bar-item w3-circle "  style="width:150px">
+      <div class="w3-bar-item">
+         {% ifequal lan 1  %}
+        <span class="w3-large">{{product.namear}}</span><br>
+          {% endifequal %}
+          {% ifequal lan 2  %}
+        <span class="w3-large">{{product.name}}</span><br>
+          {% endifequal %}
+          {% ifequal lan 3  %}
+        <span class="w3-large">{{product.nameru}}</span><br>
+          {% endifequal %}
+        <span>{{product.Price}} SR</span>
+      <a href="/item{{path}}{{product.id}}"><input type="button" class="w3-button w3-black" value="Add">
+        </a>
+      </div>
+    </li>
+</canvas>
+
+
+{%endfor%}
+
+
+    </ul></div></div>
+
+
+    <div class="dropdown" style="float:left;">
+  <button class="dropbtn">Drinks</button>
+  <div class="dropdown-content" style="left:0;">
+    {%for drink in drink %}
+
+
+    <ul class="w3-ul w3-card-4">
+    <li class="w3-bar">
+      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white  w3-right"></span>
+      <img src=" {{drink.image.url}}"  class="w3-bar-item w3-circle "  style="width:150px">
+      <div class="w3-bar-item">
+         {% ifequal lan 1  %}
+        <span class="w3-large">{{drink.namear}}</span><br>
+          {% endifequal %}
+          {% ifequal lan 2  %}
+        <span class="w3-large">{{drink.name}}</span><br>
+          {% endifequal %}
+          {% ifequal lan 3  %}
+        <span class="w3-large">{{drink.nameru}}</span><br>
+          {% endifequal %}
+        <span>{{drink.Price}} SR</span>
+      <a href="/item{{path}}{{drink.id}}"><input type="button" class="w3-button w3-black" value="Add">
+        </a>
+      </div>
+    </li>
+</canvas>
+
+
+{%endfor%}
+    </ul></div></div>
+
+
+ <div class="dropdown" style="float:left;">
+  <button class="dropbtn">Sweets</button>
+  <div class="dropdown-content" style="left:0;">
+    {%for swit in swit %}
+       {% ifequal lan 1  %}
+        <span class="w3-large">{{swit.namear}}</span><br>
+          {% endifequal %}
+          {% ifequal lan 2  %}
+        <span class="w3-large">{{swit.name}}</span><br>
+          {% endifequal %}
+          {% ifequal lan 3  %}
+        <span class="w3-large">{{swit.nameru}}</span><br>
+          {% endifequal %}
+
+    <ul class="w3-ul w3-card-4">
+    <li class="w3-bar">
+      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white  w3-right"></span>
+      <img src=" {{swit.image.url}}"  class="w3-bar-item w3-circle "  style="width:150px">
+      <div class="w3-bar-item">
+
+        <span>{{swit.Price}} SR</span>
+      <a href="/item{{path}}{{swit.id}}"><input type="button" class="w3-button w3-black" value="Add">
+        </a>
+      </div>
+    </li>
+</canvas>
+
+
+{%endfor%}
+    </ul></div></div>
+
+
+
+    </body>
+
+
+{% endblock %}

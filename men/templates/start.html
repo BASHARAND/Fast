@@ -1,0 +1,167 @@
+<html xmlns="http://www.w3.org/1999/html">
+{%extends 'base.html' %}
+
+
+{% block head %}
+
+{% endblock %}
+{% block body%}
+<head>
+
+     <style>
+
+* {
+  box-sizing: border-box;
+}
+.menu {
+  float: left;
+  width: 20%;
+}
+.menuitem {
+  padding: 4px;
+  margin-top: 4px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.main {
+  float: left;
+  width: 60%;
+  padding: 0 20px;
+  overflow: hidden;
+}
+.right {
+  background-color: lightblue;
+  float: left;
+  width: 20%;
+  padding: 10px 15px;
+  margin-top: 7px;
+}
+
+@media only screen and (max-width:500px) {
+  /* For tablets: */
+  .main {
+    width: 40%;
+    padding: 0;
+  }
+  .right {
+    width:500%;
+  }
+}
+@media only screen and (max-width:1000px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
+
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+     min-width: 350px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 350px;
+    box-shadow: 10px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 20px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+</style>
+</style
+</head>
+
+<div class="container" align="center">
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href='/static/style/file.css'/>
+
+
+ <div class="dropdown" >
+
+      <button class="dropbtn" id="myid">Add to my order </button>
+
+
+  <div class="dropdown-content" style="float:left;">
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="OK">
+
+</form>
+
+  </div></div>
+<br><br><br><br>
+
+
+<a href="/new/{{ln}}"><button class="dropbtn" id="ar">Start new order</button></a>
+<script>
+if ({{ln}} == 1) {
+  document.getElementById("myid").innerHTML = "إضافة لطلبي";
+    document.getElementById("ar").innerHTML = "طلب جديد";
+}
+else if ({{ln}} == 3) {
+  document.getElementById("myid").innerHTML = "Добавить в мой заказ";
+    document.getElementById("ar").innerHTML = "новый заказ";
+}
+</script>
+
+<p>{{msg}}</p>
+
+
+
+        <video width="350" controls>
+  <source src="{{inform.logo.url}}" type="video/mp4">
+
+  Your browser does not support HTML5 video.
+</video>
+<br>
+
+</div>
+{%for inform in inform%}
+
+<center><div class="menu" align="center"></div>
+    <div class="menuitem">{{inform.name}} Restaurant</div>
+    <div class="menuitem">Phone Number {{inform.phone}} </div>
+    <div class="menuitem">Address: {{inform.address}}</div></center>>
+
+{%endfor%}
+
+
+
+</body>
+
+{% endblock %}
+
+
+</html>
